@@ -13,14 +13,16 @@ app.secret_key = "lkjhdsaofh123ljh"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 # Turn off flask sql mofification tracker, because sqlalchemy has its own and its better:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-api = Api(app) # Allows easily add resources
+# Allows to easily add resources:
+api = Api(app)
 
-# Create all databases - for users and items
+# Create all databases - for users, items and stores
 @app.before_first_request
 def create_tables():
     db.create_all()
 
-jwt = JWT(app, authenticate, identity) # JWT creates a new endpoint /auth
+# JWT creates a new endpoint /auth:
+jwt = JWT(app, authenticate, identity)
 
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(Item, '/item/<string:name>')
