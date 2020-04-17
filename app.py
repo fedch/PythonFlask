@@ -16,11 +16,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Allows to easily add resources:
 api = Api(app)
 
-# Create all databases - for users, items and stores
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 # JWT creates a new endpoint /auth:
 jwt = JWT(app, authenticate, identity)
 
