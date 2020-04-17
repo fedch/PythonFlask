@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -10,7 +12,8 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 
 app.secret_key = "lkjhdsaofh123ljh"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+# Get method to take 2 parameters: Os is for using the Heroku database, sqlite is for testing the app locally:
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 # Turn off flask sql mofification tracker, because sqlalchemy has its own and its better:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Allows to easily add resources:
