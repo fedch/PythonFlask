@@ -1,5 +1,8 @@
 # My awesome REST API
 
+A simulation of an online store.
+The app allows to stores items in database, retrieve them and change the price.
+
 ## Installation
 ```
 pip install Flask
