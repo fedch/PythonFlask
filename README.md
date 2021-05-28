@@ -1,7 +1,7 @@
 # My awesome REST API
 
 A simple simulation of an online store.
-The app allows to stores items in database, retrieve them and change the price.
+The app allows to store items in database, retrieve them and change the price.
 
 ## Installation
 ```
